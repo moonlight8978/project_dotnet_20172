@@ -1,5 +1,4 @@
-﻿using Project20172.Find;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,36 +9,25 @@ using System.Web.UI.WebControls;
 
 namespace Project20172
 {
-    public partial class _Default : Page
-    {
+	public partial class Chapter : System.Web.UI.Page
+	{
 		SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\Bach\\workspace\\DotNet\\Project20172\\Project20172\\App_Data\\novel.mdf;Integrated Security=True");
-		Finder finder;
+
 		protected void Page_Load(object sender, EventArgs e)
-        {
+		{
 			Display();
-			finder = new Finder();
-			FindingResult.Text = finder.data.Count.ToString();
 		}
 
 		private void Display()
 		{
 			conn.Open();
-			SqlCommand cmd = new SqlCommand("select * from Chapters where NovelID=1", conn);
+			SqlCommand cmd = new SqlCommand("select * from Chapters where ID=" + Page.RouteData.Values["ID"].ToString(), conn);
 			SqlDataAdapter adp = new SqlDataAdapter(cmd);
 			DataSet data = new DataSet();
 			adp.Fill(data);
 			conn.Close();
-			ChaptersList.DataSource = data;
-			ChaptersList.DataBind();
-		}
-
-		protected void Find_Click(object sender, EventArgs e)
-		{
-			string keyword = FindingKeyword.Text;
-			List<FindingResult> results = finder.FindSentences(finder.data[0], keyword);
-			FindingResult.Text = results.Count.ToString();
-			ResultText.DataSource = results;
-			ResultText.DataBind();
+			ChapterNumber.Text = data.Tables[0].Rows[0]["Number"].ToString();
+			ChapterContent.Text = data.Tables[0].Rows[0]["Content"].ToString();
 		}
 	}
 }

@@ -25,6 +25,12 @@ namespace Project20172
                 "asddas",
                 "~/Admin.aspx"
             );
-        }
+
+			routes.MapPageRoute(
+				"ChapterShow",
+				"chapters/{ID}",
+				"~/Chapter.aspx"
+			);
+		}
     }
 }

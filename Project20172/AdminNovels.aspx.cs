@@ -30,7 +30,7 @@ namespace Project20172
         private void DisplayNovel()
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from Novels where ID=" + Page.RouteData.Values["ID"].ToString(), conn);
+            SqlCommand cmd = new SqlCommand("select * from Novels where ID=1", conn);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataSet data = new DataSet();
             adp.Fill(data);
@@ -41,7 +41,7 @@ namespace Project20172
         private void DisplayChapters()
         {
             conn.Open();
-            SqlCommand cmd = new SqlCommand("select * from Chapters where NovelID=" + Page.RouteData.Values["ID"].ToString(), conn);
+            SqlCommand cmd = new SqlCommand("select * from Chapters where NovelID=1", conn);
             SqlDataAdapter adp = new SqlDataAdapter(cmd);
             DataSet data = new DataSet();
             adp.Fill(data);
@@ -55,7 +55,7 @@ namespace Project20172
             conn.Open();
             SqlCommand cmd = new SqlCommand(
                 "insert into Chapters values(N'"
-                + Page.RouteData.Values["ID"].ToString() + "',N'"
+                + 1 + "',N'"
                 + NewChapterNumber.Text + "',N'"
                 + NewChapterContent.Text + "')",
                 conn
