@@ -13,6 +13,24 @@ namespace Project20172 {
     public partial class Chapter {
         
         /// <summary>
+        /// ChapterFullName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ChapterFullName;
+        
+        /// <summary>
+        /// NovelName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NovelName;
+        
+        /// <summary>
         /// ChapterNumber control.
         /// </summary>
         /// <remarks>

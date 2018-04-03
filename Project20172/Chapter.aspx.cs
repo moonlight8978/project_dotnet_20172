@@ -26,8 +26,24 @@ namespace Project20172
 			DataSet data = new DataSet();
 			adp.Fill(data);
 			conn.Close();
-			ChapterNumber.Text = data.Tables[0].Rows[0]["Number"].ToString();
+			ChapterNumber.Text = "Hồi " + data.Tables[0].Rows[0]["Number"].ToString();
 			ChapterContent.Text = data.Tables[0].Rows[0]["Content"].ToString();
+			ShowNovel(data.Tables[0].Rows[0]["NovelID"].ToString());
+			ChapterFullName.Text = NovelName.Text + " - " + ChapterNumber.Text;
+		}
+
+		private void ShowNovel(String ID)
+		{
+			conn.Open();
+			SqlCommand cmd = new SqlCommand(
+				String.Format("select * from Novels where ID= {0}", ID), 
+				conn
+			);
+			SqlDataAdapter adp = new SqlDataAdapter(cmd);
+			DataSet data = new DataSet();
+			adp.Fill(data);
+			conn.Close();
+			NovelName.Text = data.Tables[0].Rows[0]["Name"].ToString();
 		}
 	}
 }

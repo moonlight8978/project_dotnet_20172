@@ -1,31 +1,130 @@
-﻿/* Move down content because we have a fixed navbar that is 50px tall */
+﻿.navbar-outer {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar {
+    justify-content: center;
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
 body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+    background-color: #e6ecf0;
 }
 
-/* Wrapping element */
-/* Set some basic padding to keep content from hitting the edges */
-.body-content {
-    padding-left: 15px;
-    padding-right: 15px;
+.boxes {
+    margin-bottom: -1rem;
 }
 
-/* Set widths on the form inputs since otherwise they're 100% wide */
-input,
-select,
-textarea {
-    max-width: 280px;
+.box:not(:last-child) {
+    margin-bottom: 1rem;
 }
 
+.box {
+  background-color: #fff;
+  padding: 1rem;
+  border: 1px solid #e6ecf0;
+}
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .jumbotron {
-        margin-top: 20px;
-    }
+.box.has-items {
+    padding: 0;
+}
 
-    .body-content {
-        padding: 0;
-    }
+.box-item {
+    padding: 1rem;
+}
+
+.box-item:not(:last-child) {
+    border-bottom: 1px solid #e6ecf0;
+}
+
+.box-item.box-item-action {
+    transition: background-color 0.15s ease;
+
+}
+.box-item.box-item-action:hover {
+    background-color: #f5f8fa;
+}
+
+.breadcrumb {
+    margin-top: 1rem;
+    background-color: #fff;
+    border-radius: 0;
+}
+
+.form-group {
+    position: relative;
+    padding-top: 1.5rem;
+}
+
+.form-group .form-control {
+    border: 0;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-radius: 0;
+    box-shadow: none;
+    padding: 1rem 1rem 1rem 0;
+    transition: all .3s ease;
+}
+
+.form-group .form-control:focus {
+    border-color: #1da1f2;
+    box-shadow: 0 1px 0 #1da1f2;
+}
+
+.form-group .form-control ~ label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all .3s ease;
+}
+
+.form-group .form-control:focus ~ label {
+    color: #1da1f2;
+}
+
+table {
+    width: 100%;
+}
+
+#MainContent_ResultText tr:nth-child(odd) .row-result {
+    background-color: #e6ecf0;
+}
+
+#MainContent_ResultText tr .row-result {
+    padding: .5rem 1rem;
+}
+
+.page-title {
+    margin: 1rem 0;
+    text-align: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+}
+
+.page-title h1 {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+.btn {
+    padding: .5rem 2rem;
+    border-radius: 50px;
+}
+
+#MainContent_ChapterContent {
+    white-space: pre-wrap;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+.footer-nav {
+    padding: 2rem 1rem 0;
+    margin-bottom: -1rem;
+}
+
+footer {
+    margin-top: 3rem;
+    text-align: center;
+    padding: 1rem 0 2rem;
 }

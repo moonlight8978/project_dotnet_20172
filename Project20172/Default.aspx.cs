@@ -17,8 +17,8 @@ namespace Project20172
 		protected void Page_Load(object sender, EventArgs e)
         {
 			Display();
-			finder = new Finder();
-			FindingResult.Text = finder.data.Count.ToString();
+			finder = new Finder("1");
+			//FindingResult.Text = finder.data.Count.ToString();
 		}
 
 		private void Display()
@@ -36,8 +36,8 @@ namespace Project20172
 		protected void Find_Click(object sender, EventArgs e)
 		{
 			string keyword = FindingKeyword.Text;
-			List<FindingResult> results = finder.FindSentences(finder.data[0], keyword);
-			FindingResult.Text = results.Count.ToString();
+			List<FindingResult> results = finder.FindSentences(keyword);
+			//FindingResult.Text = results.Count.ToString();
 			ResultText.DataSource = results;
 			ResultText.DataBind();
 		}

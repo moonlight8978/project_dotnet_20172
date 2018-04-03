@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Project20172.Finding;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -10,25 +11,31 @@ namespace Project20172.Find
 {
 	public class Finder
 	{
-		public List<String> data { get; set; }
-		public Finder()
+		public List<Paragraph> data { get; set; }
+		public string NovelID;
+		public Finder(string NovelID)
 		{
-			data = new List<String>();
+			this.NovelID = NovelID;
+			data = new List<Paragraph>();
 			getData();
-
+			
 		}
 		public void getData()
 		{
 			SqlConnection conn = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=E:\\Bach\\workspace\\DotNet\\Project20172\\Project20172\\App_Data\\novel.mdf;Integrated Security=True");
 			conn.Open();
-			SqlCommand cmd = new SqlCommand("select * from Chapters where NovelID=1", conn);
+			SqlCommand cmd = new SqlCommand("select * from Chapters where NovelID=" + NovelID, conn);
 			SqlDataAdapter adp = new SqlDataAdapter(cmd);
 			DataSet data = new DataSet();
 			adp.Fill(data);
 			conn.Close();
 			foreach (DataRow row in data.Tables[0].Rows)
 			{
-				this.data.Add(row["Content"].ToString());
+				Paragraph paragraph = new Paragraph(
+					row["Number"].ToString(),
+					row["Content"].ToString()
+				);
+				this.data.Add(paragraph);
 			}
 		}
 
@@ -61,13 +68,20 @@ namespace Project20172.Find
 			return score;
 		}
 		// Check if sentence match provided keyword
-		// return score of sentence (>= 0 if succeed, -1 if fail)
-		public int Match(string sentence, string keyword)
+		// return score of sentence (>= 0 if succeed, -1 if fail, if corrent 100% = 0)
+		public int Match(string rawSentence, string keyword)
 		{
+			string sentence = rawSentence.ToLower();
+			string regex = @"\b(" + keyword + @")\b";
+			if (Regex.Match(sentence, regex).Length == 0)
+			{
+				return 0;
+			}
+
 			string[] keys = keyword.Split(' ');
 			foreach (string key in keys)
 			{
-				string regex = @"\b(" + key + @")\b";
+				regex = @"\b(" + key + @")\b";
 				if (Regex.Match(sentence, regex).Length == 0)
 				{
 					return -1;
@@ -79,22 +93,27 @@ namespace Project20172.Find
 			return score;
 		}
 
-		public List<FindingResult> FindSentences(string paragraph, string keyword)
+		public List<FindingResult> FindSentences(string keyword)
 		{
-			string[] sentences = paragraph.Split('.');
 			List<FindingResult> findingResults = new List<FindingResult>();
-			foreach (string sentence in sentences)
-			{
-				int score = Match(sentence, keyword);
-				if (score > 0)
-				{
-					findingResults.Add(new FindingResult(sentence, score));
-				}
-			}
 
-			findingResults.Sort((x, y) => {
-				return x.score - y.score;
-			});
+			foreach (Paragraph paragraph in data)
+			{
+				string[] sentences = paragraph.content.Split('.');
+				foreach (string sentence in sentences)
+				{
+					int score = Match(sentence, keyword.ToLower());
+					if (score > 0)
+					{
+						findingResults.Add(new FindingResult(paragraph.number, sentence, score));
+					}
+				}
+
+				findingResults.Sort((x, y) => {
+					return x.score - y.score;
+				});
+			}
+			
 			return findingResults;
 		}
 	}

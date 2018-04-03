@@ -22,15 +22,6 @@ namespace Project20172 {
         protected global::System.Web.UI.WebControls.TextBox FindingKeyword;
         
         /// <summary>
-        /// FindingResult control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label FindingResult;
-        
-        /// <summary>
         /// Find control.
         /// </summary>
         /// <remarks>
