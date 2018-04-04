@@ -39,82 +39,43 @@ namespace Project20172.Find
 			}
 		}
 
-		public List<int> CalculateIndexes(string sentence, string[] keys)
-		{
-			sentence = Regex.Replace(sentence, "[,.-:_'\"()]+", "");
-			string[] words = sentence.Split(' ');
-			List<int> positions = new List<int>();
-			foreach (string key in keys)
-			{
-				positions.Add(Array.FindIndex(words, word => word == key));
-			}
-
-			return positions;
-		}
-
-		// Use array of indexes to calculate score
-		public int CalculateScore(List<int> positions)
-		{
-			int score = 0;
-			positions.Sort();
-			if (positions.Count == 1)
-			{
-				return 0;
-			}
-			for (int i = 0; i < positions.Count - 1; i += 1)
-			{
-				score += positions[i + 1] - positions[i];
-			}
-			return score;
-		}
-		// Check if sentence match provided keyword
-		// return score of sentence (>= 0 if succeed, -1 if fail, if corrent 100% = 0)
-		public int Match(string rawSentence, string keyword)
-		{
-			string sentence = rawSentence.ToLower();
-			string regex = @"\b(" + keyword + @")\b";
-			if (Regex.Match(sentence, regex).Length == 0)
-			{
-				return 0;
-			}
-
-			string[] keys = keyword.Split(' ');
-			foreach (string key in keys)
-			{
-				regex = @"\b(" + key + @")\b";
-				if (Regex.Match(sentence, regex).Length == 0)
-				{
-					return -1;
-				}
-			}
-
-			List<int> positions = CalculateIndexes(sentence, keys);
-			int score = CalculateScore(positions);
-			return score;
-		}
-
 		public List<FindingResult> FindSentences(string keyword)
 		{
-			List<FindingResult> findingResults = new List<FindingResult>();
+			List<FindingResult> fullMatches = new List<FindingResult>();
+			List<FindingResult> bestMatches = new List<FindingResult>();
 
 			foreach (Paragraph paragraph in data)
 			{
-				string[] sentences = paragraph.content.Split('.');
-				foreach (string sentence in sentences)
+				paragraph.SplitIntoSentences();
+				FindingResult fullMatch = paragraph.FindFullMatch(keyword);
+				if (fullMatch != null)
 				{
-					int score = Match(sentence, keyword.ToLower());
-					if (score > 0)
-					{
-						findingResults.Add(new FindingResult(paragraph.number, sentence, score));
-					}
+					fullMatches.Add(fullMatch);
 				}
+			}
+			if (fullMatches.Count > 0)
+			{
+				return fullMatches;
+			}
 
-				findingResults.Sort((x, y) => {
+			foreach (Paragraph paragraph in data)
+			{
+				paragraph.SplitIntoSentences();
+				FindingResult bestMatch = paragraph.FindBestMatch(keyword);
+				if (bestMatch != null)
+				{
+					bestMatches.Add(bestMatch);
+				}
+			}
+			if (bestMatches.Count > 0)
+			{
+				bestMatches.Sort((x, y) =>
+				{
 					return x.score - y.score;
 				});
 			}
-			
-			return findingResults;
+
+			return bestMatches;
 		}
 	}
 }

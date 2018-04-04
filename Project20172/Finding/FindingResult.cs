@@ -18,7 +18,7 @@ namespace Project20172.Find
 		public string chapter { get; set; }
 		public override String ToString()
 		{
-			return String.Format("(Hồi {0}) {1}", chapter, sentence);
+			return HttpUtility.HtmlDecode(String.Format("(Hồi {0}) {1}", chapter, sentence));
 		}
 	}
 }

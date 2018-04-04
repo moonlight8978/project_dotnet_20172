@@ -94,12 +94,16 @@ table {
     padding: .5rem 1rem;
 }
 
+.row-result em {
+	font-weight: bold;
+}
+
 .page-title {
-    margin: 1rem 0;
-    text-align: center;
-    /*display: flex;*/
-    /*justify-content: center;*/
-    /*align-items: center;*/
+	margin: 1rem 0;
+	text-align: center;
+	/*display: flex;*/
+	/*justify-content: center;*/
+	/*align-items: center;*/
 }
 
 .page-title h1 {
