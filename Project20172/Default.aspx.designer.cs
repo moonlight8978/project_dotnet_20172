@@ -13,39 +13,12 @@ namespace Project20172 {
     public partial class _Default {
         
         /// <summary>
-        /// FindingKeyword control.
+        /// NovelList control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox FindingKeyword;
-        
-        /// <summary>
-        /// Find control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Find;
-        
-        /// <summary>
-        /// ResultText control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList ResultText;
-        
-        /// <summary>
-        /// ChaptersList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataList ChaptersList;
+        protected global::System.Web.UI.WebControls.DataList NovelList;
     }
 }

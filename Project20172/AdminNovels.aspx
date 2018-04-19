@@ -7,6 +7,7 @@
 			<li class="breadcrumb-item active">Sửa tiểu thuyết</li>
 		</ol>
 	</nav>
+
 	<div class="page-title">
 		<h1>
 			<asp:Label ID="NovelName" runat="server" Text="Novel name"></asp:Label></h1>

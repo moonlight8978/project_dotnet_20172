@@ -49,10 +49,9 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
 			<footer>
-				Lê Sĩ Bích - 20155125
+				&copy; 2018 Team Nyoro
 			</footer>
         </div>
-
     </form>
 </body>
 </html>

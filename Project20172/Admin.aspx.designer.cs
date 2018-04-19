@@ -13,31 +13,31 @@ namespace Project20172 {
     public partial class Admin {
         
         /// <summary>
-        /// form1 control.
+        /// NovelName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox NovelName;
         
         /// <summary>
-        /// NewNovelName control.
+        /// CreateNovel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox NewNovelName;
+        protected global::System.Web.UI.WebControls.LinkButton CreateNovel;
         
         /// <summary>
-        /// CreateNewNovel control.
+        /// UpdateNovel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button CreateNewNovel;
+        protected global::System.Web.UI.WebControls.LinkButton UpdateNovel;
         
         /// <summary>
         /// NovelsList control.

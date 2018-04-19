@@ -1,44 +1,43 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="Project20172._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
-
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
-			<li class="breadcrumb-item active">Home</li>
+			<li class="breadcrumb-item active">Trang chủ</li>
 		</ol>
 	</nav>
+
 	<div class="page-title">
-		<h1>Thiên long bát bộ</h1>
-		(<asp:HyperLink NavigateUrl="/AdminNovels.aspx" runat="server">Sửa</asp:HyperLink>)
+		<h1>THẬT KHÔNG THỂ TIN NỔI</h1>
+		<h1>Ứng dụng đọc tiểu thuyết ngôn lù hàng đầu Việt Nam</h1>
 	</div>
 
 	<div class="boxes">
 		<div class="box">
-			<h5>Tìm kiếm</h5>
-			<div class="form-group">
-				<asp:TextBox CssClass="form-control" ID="FindingKeyword" runat="server"></asp:TextBox>
-				<label>Từ khóa</label>
-			</div>
+			<h5>Credits</h5>
 
-			<%--<asp:Label ID="FindingResult" runat="server" Text="Label"></asp:Label>--%>
-			<asp:Button CssClass="btn btn-primary mb-3" ID="Find" runat="server" Text="Find" OnClick="Find_Click" />
-
-			<asp:DataList ID="ResultText" runat="server" ItemStyle-CssClass="row-result">
-				<ItemTemplate>
-					<%# Container.DataItem %>
-				</ItemTemplate>
-			</asp:DataList>
+			<ul class="m-0">
+				<li>
+					Team Nyoro:<br />
+					Lê Sĩ Bích - 20155125<br />
+					Nguyễn Hữu Thắng - 20156500
+				</li>
+				<li>
+					Design: Twitter
+				</li>
+			</ul>
 		</div>
 
 		<div class="box">
-			<h5>Danh sách hồi</h5>
+			<h5>Danh sách tiểu thuyết</h5>
 
-			<asp:DataList ID="ChaptersList" runat="server">
+			<a href="/admin">>>>>>>> Đi tới trang quản lý</a>
+
+			<asp:DataList ID="NovelList" runat="server">
 				<ItemTemplate>
-					<asp:HyperLink NavigateUrl='<%# Eval("ID", "/chapters/{0}.aspx") %>' runat="server" Text='<%# Eval("Number", "Hồi {0}") %>'></asp:HyperLink>
+					<asp:HyperLink NavigateUrl='<%# Eval("ID", "/novels/{0}") %>' runat="server" Text='<%# Eval("Name") %>'></asp:HyperLink>
 				</ItemTemplate>
 			</asp:DataList>
 		</div>
 	</div>
-
 </asp:Content>

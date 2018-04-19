@@ -27,6 +27,12 @@ namespace Project20172
             );
 
 			routes.MapPageRoute(
+				"NovelShow",
+				"novels/{ID}",
+				"~/Novel.aspx"
+			);
+
+			routes.MapPageRoute(
 				"ChapterShow",
 				"chapters/{ID}",
 				"~/Chapter.aspx"
