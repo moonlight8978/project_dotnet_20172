@@ -289,7 +289,18 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="Spelling\Highlighter.cs" />
+    <Compile Include="Spelling\Rules\Rule1.cs" />
+    <Compile Include="Spelling\Rules\Rule2.cs" />
+    <Compile Include="Spelling\Rules\Rule3.cs" />
+    <Compile Include="Spelling\Rules\Rule4.cs" />
+    <Compile Include="Spelling\Rules\Rule5.cs" />
+    <Compile Include="Spelling\Rules\Rule6.cs" />
+    <Compile Include="Spelling\Rules\Rule7.cs" />
+    <Compile Include="Spelling\Rules\Rule8.cs" />
+    <Compile Include="Spelling\Rules\Rule9.cs" />
     <Compile Include="Spelling\SpellChecker.cs" />
+    <Compile Include="Spelling\Splitter.cs" />
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

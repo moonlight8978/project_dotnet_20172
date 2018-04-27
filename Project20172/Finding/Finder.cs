@@ -69,10 +69,7 @@ namespace Project20172.Find
 			}
 			if (bestMatches.Count > 0)
 			{
-				bestMatches.Sort((x, y) =>
-				{
-					return x.score - y.score;
-				});
+				bestMatches.Sort((x, y) => x.score - y.score);
 			}
 
 			return bestMatches;

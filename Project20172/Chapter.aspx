@@ -10,14 +10,25 @@
 		</ol>
 	</nav>
 	<div class="page-title">
-		<h1><asp:Label ID="NovelName" runat="server" Text="Tiểu thuyết"></asp:Label></h1>
+		<h1>
+			<asp:Label ID="NovelName" runat="server" Text="Tiểu thuyết"></asp:Label>
+		</h1>
 		(<asp:Label ID="ChapterNumber" runat="server" Text="Hồi"></asp:Label>)
 	</div>
 
 	<div class="boxes">
 		<div class="box">
-		<asp:Label ID="ChapterContent" runat="server" Text="Nội dung"></asp:Label>
-	</div>
+			Số lỗi chính tả: 
+			<asp:Label ID="InvalidCount" runat="server"></asp:Label>
+
+			<div class="mt-3">
+				<asp:Button CssClass="btn btn-primary" ID="SpellCheck" runat="server" Text="Kiểm tra chính tả" OnClick="SpellCheck_Click" />
+			</div>
+		</div>
+
+		<div class="box">
+			<asp:Label ID="ChapterContent" runat="server" Text="Nội dung"></asp:Label>
+		</div>
 	</div>
 
 	<div class="footer-nav">

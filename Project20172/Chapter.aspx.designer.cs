@@ -40,6 +40,24 @@ namespace Project20172 {
         protected global::System.Web.UI.WebControls.Label ChapterNumber;
         
         /// <summary>
+        /// InvalidCount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label InvalidCount;
+        
+        /// <summary>
+        /// SpellCheck control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button SpellCheck;
+        
+        /// <summary>
         /// ChapterContent control.
         /// </summary>
         /// <remarks>
