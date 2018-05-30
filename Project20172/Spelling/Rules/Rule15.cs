@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule4 : Rule
+	class Rule15 : Rule
 	{
+		private string[] eeng =
+		{
+			"êng", "ếng", "ềng", "ểng", "ễng", "ệng"
+		};
+
 		public override bool Check(Word word)
 		{
-			bool nguyenAmFound = false;
-			foreach (char character in word.original)
-			{
-				if (!phuAm.Contains("" + character))
-				{
-					nguyenAmFound = true;
-				}
-			}	
-			if (!nguyenAmFound)
+			if (word.IsFirstPresent() && word.first.CompareTo("gi") != 0 && eeng.Contains(word.last))
 			{
 				return false;
 			}
+
 			return true;
 		}
 	}

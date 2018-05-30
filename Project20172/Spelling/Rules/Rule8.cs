@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule8 : SpellChecker
+	class Rule8 : Rule
 	{
-		public override bool Check(string word)
+		public override bool Check(Word word)
 		{
-			if (word.Length > 7)
+			if (word.original.Length > 7)
 			{
 				return false;
 			}

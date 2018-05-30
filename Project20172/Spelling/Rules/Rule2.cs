@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule2 : SpellChecker
+	class Rule2 : Rule
 	{
-		public override bool Check(string word)
+		public override bool Check(Word word)
 		{
-			if (word.Length > 2)
+			if (word.original.Length > 2)
 			{
 				bool isDouble =
-				phuAm.Contains(word[0].ToString()) &&
-				phuAm.Contains(word[1].ToString());
+				phuAm.Contains(word.original[0].ToString()) &&
+				phuAm.Contains(word.original[1].ToString());
 
-				if (isDouble && !phuAmDoiDau.Contains("" + word[0] + word[1]))
+				if (isDouble && !phuAmDoiDau.Contains("" + word.original[0] + word.original[1]))
 				{
 					return false;
 				}

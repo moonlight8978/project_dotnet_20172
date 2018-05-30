@@ -6,22 +6,20 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule4 : Rule
+	class Rule14 : Rule
 	{
+		private string[] gi =
+		{
+			"gi", "gí", "gì", "gỉ", "gĩ", "gị"
+		};
+
 		public override bool Check(Word word)
 		{
-			bool nguyenAmFound = false;
-			foreach (char character in word.original)
-			{
-				if (!phuAm.Contains("" + character))
-				{
-					nguyenAmFound = true;
-				}
-			}	
-			if (!nguyenAmFound)
+			if (!word.IsLastPresent() && word.IsFirstPresent() && !gi.Contains(word.first))
 			{
 				return false;
 			}
+
 			return true;
 		}
 	}

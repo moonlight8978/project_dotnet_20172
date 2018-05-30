@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule7 : SpellChecker
+	class Rule7 : Rule
 	{
-		public override bool Check(string word)
+		public override bool Check(Word word)
 		{
-			if (word.Length > 3)
+			if (word.original.Length > 3)
 			{
 				if (
-					isPhuAm(word[word.Length - 1]) &&
-					isPhuAm(word[word.Length - 2]) &&
-					isPhuAm(word[word.Length - 3])
+					isPhuAm(word.original[word.original.Length - 1]) &&
+					isPhuAm(word.original[word.original.Length - 2]) &&
+					isPhuAm(word.original[word.original.Length - 3])
 				)
 				{
 					return false;

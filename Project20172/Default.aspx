@@ -9,7 +9,7 @@
 
 	<div class="page-title">
 		<h1>THẬT KHÔNG THỂ TIN NỔI</h1>
-		<h1>Ứng dụng đọc tiểu thuyết ngôn lù hàng đầu Việt Nam</h1>
+		<h1>Ứng dụng đọc tiểu thuyết Kim Dung hàng đầu Việt Nam</h1>
 	</div>
 
 	<div class="boxes">

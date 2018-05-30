@@ -6,22 +6,24 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule4 : Rule
+	class Rule10 : Rule
 	{
 		public override bool Check(Word word)
 		{
-			bool nguyenAmFound = false;
-			foreach (char character in word.original)
+			var count = 0;
+			foreach (char c in word.original)
 			{
-				if (!phuAm.Contains("" + character))
+				if (isNguyenAm(c))
 				{
-					nguyenAmFound = true;
+					count += 1;
 				}
-			}	
-			if (!nguyenAmFound)
+			}
+
+			if (count > 3)
 			{
 				return false;
 			}
+
 			return true;
 		}
 	}

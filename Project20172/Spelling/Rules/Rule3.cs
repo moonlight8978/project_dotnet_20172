@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule3 : SpellChecker
+	class Rule3 : Rule
 	{
-		public override bool Check(string word)
+		public override bool Check(Word word)
 		{
-			if (word.Length > 3)
+			if (word.original.Length > 3)
 			{
 				bool isTriple =
-				phuAm.Contains(word[0].ToString()) &&
-				phuAm.Contains(word[1].ToString()) &&
-				phuAm.Contains(word[2].ToString());
+				phuAm.Contains(word.original[0].ToString()) &&
+				phuAm.Contains(word.original[1].ToString()) &&
+				phuAm.Contains(word.original[2].ToString());
 
-				if (isTriple && !phuAmBa.Contains("" + word[0] + word[1] + word[2]))
+				if (isTriple && !phuAmBa.Contains("" + word.original[0] + word.original[1] + word.original[2]))
 				{
 					return false;
 				}

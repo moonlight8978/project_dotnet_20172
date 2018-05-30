@@ -1,6 +1,7 @@
 ﻿using Project20172.P;
 using Project20172.Spelling;
 using Spelling;
+using Spelling.Rules;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -68,6 +69,8 @@ namespace Project20172
 					invalidWords.Add(word);
 				}
 			}
+
+			System.IO.File.WriteAllLines(@"E:\invalid_words.txt", invalidWords);
 
 			foreach (string word in invalidWords)
 			{

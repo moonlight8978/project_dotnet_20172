@@ -6,19 +6,16 @@ using System.Threading.Tasks;
 
 namespace Spelling.Rules
 {
-	class Rule4 : Rule
+	class Rule16 : Rule
 	{
+		private string[] yy =
+		{
+			"y", "ý", "ỳ", "ỷ", "ỹ", "ỵ"
+		};
+
 		public override bool Check(Word word)
 		{
-			bool nguyenAmFound = false;
-			foreach (char character in word.original)
-			{
-				if (!phuAm.Contains("" + character))
-				{
-					nguyenAmFound = true;
-				}
-			}	
-			if (!nguyenAmFound)
+			if (word.IsFirstPresent() && word.first.CompareTo("qu") != 0 && word.IsLastPresent() && yy.Contains(word.last[0] + ""))
 			{
 				return false;
 			}
