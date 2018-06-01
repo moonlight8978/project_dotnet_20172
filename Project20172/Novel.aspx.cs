@@ -15,21 +15,22 @@ namespace Project20172
 	{
 		Connector connector = new Connector();
 		Finder finder;
+		string id;
 		protected void Page_Load(object sender, EventArgs e)
 		{
 			Display();
-			finder = new Finder("1");
+			finder = new Finder(id);
 			//FindingResult.Text = finder.data.Count.ToString();
 		}
 
 		private void Display()
 		{
-			string id = Page.RouteData.Values["ID"].ToString();
-			DisplayNovelInfo(id);
-			DisplayChapters(id);
+			id = Page.RouteData.Values["ID"].ToString();
+			DisplayNovelInfo();
+			DisplayChapters();
 		}
 
-		private void DisplayNovelInfo(string id)
+		private void DisplayNovelInfo()
 		{
 			string sql = String.Format("SELECT * FROM Novels WHERE ID = {0}", id);
 			DataSet data = connector.query(sql);
@@ -43,7 +44,7 @@ namespace Project20172
 			);
 		}
 
-		private void DisplayChapters(string id)
+		private void DisplayChapters()
 		{
 			string sql = String.Format("SELECT * FROM Chapters WHERE NovelID = {0}", id);
 			DataSet data = connector.query(sql);

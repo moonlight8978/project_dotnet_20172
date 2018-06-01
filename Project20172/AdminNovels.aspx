@@ -18,7 +18,7 @@
 			<h5>Hồi mới / Sửa hồi</h5>
 
 			<div class="form-group">
-				<asp:TextBox CssClass="form-control" ID="NewChapterNumber" runat="server"></asp:TextBox>
+				<asp:TextBox CssClass="form-control" ID="NewChapterNumber" TextMode="Number" runat="server"></asp:TextBox>
 				<label>Hồi</label>
 			</div>
 
